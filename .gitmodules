@@ -1,0 +1,6 @@
+[submodule "Arkham-ui"]
+	path = Arkham-ui
+	url = https://github.com/Artemis-Holdings/Arkham-ui
+[submodule "Arkham-api"]
+	path = Arkham-api
+	url = https://github.com/Artemis-Holdings/Arkham-api
