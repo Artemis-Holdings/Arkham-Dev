@@ -1,8 +1,26 @@
 version: '3'
+
 volumes:
   keycloak_data:
       driver: local
+  # graph_data:
+  #     driver: local
+
 services:
+# build arkham-graph database
+  # arkham_graph_db:
+  #   image: postgres:latest
+  #   container_name: arkham_graph_db
+  #   volumes:
+  #     - graph_data:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=arkham
+  #   ports:
+  #     - "5432:5432"
+  #   command: postgres
+
+# build keycloak service
   persist_keycloak:
       image: postgres:latest
       volumes:
