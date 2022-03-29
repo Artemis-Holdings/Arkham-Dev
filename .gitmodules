@@ -4,3 +4,6 @@
 [submodule "Arkham-api"]
 	path = Arkham-api
 	url = https://github.com/Artemis-Holdings/Arkham-api
+[submodule "Arkham-Login-Theme"]
+	path = Arkham-Login-Theme
+	url = https://github.com/Artemis-Holdings/Arkham-Login-Theme
