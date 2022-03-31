@@ -14,16 +14,18 @@
 
 [5. Security](#security)
 
-## Overview
-Dead drop provides users with secure and anonymous file sharing. All messages and Binary Large Objects (BLOBS) are encrypted. There are no user accounts; instead, users create dead-drops using a hash & pass combo.
+## 📝 Overview
+Arkham is a graph visualization tool built within the React.js library. This application allows for extensive and efficient graph manipulation and visualization. Data can be created, edited, and deleted from within the application, with all changes being saved to a database. This tool can be used to portray any graph-type data set, whether it be personnel, device networks, or equipment matrix.
 
 ### Features
-  - Compleately anonymous file sharing. No users. No email.
-  - Dead Drops with unmodified passwords are deleted after a certian ammount of time
-  - Encrypted file & messaging storage
-  - Modify dead-drops anonymously
+  - Visualize graph data
+  - Manipulate the graph data (create, edit, and delete nodes and links)
+  - Import CSV data to the graph
+  - Export your workspace (with the changes you made) into a CSV file
+  - All data is saved into a database for future usage
+  - Secure account registration and login
 
-## Dependencies
+## 📦 Dependencies
 
 Front End (UI):
 - Docker
@@ -44,13 +46,27 @@ Back End (API):
 - Knex
 - express-fileupload
 - fs
+- multer
 
-## Dev Installation
-For development purposes, you may clone the repo to your local computer. After cloning both the UI and API repos run the following commands:
-- `npm install` in both the UI and API repos
-- `npm start` to start the API server
-- `npm start` to start the React UI server
-- Create PostgreSQL Docker container. Ensure the .env variables matches the DB name.
+## 🏗️ Development Installation
+
+For development purposes, you may clone the repo to your development environment.
+- Prefered OS: Debian-based Linux 5.x
+- The primary repo is located at: https://github.com/Artemis-Holdings/Arkham-Dev
+  - NOTE: Please request access to Artims Org to clone the repo.
+
+- Clone the repo to your development environment.
+  - `$ git clone --recurse-submodules -j8 https://github.com/Artemis-Holdings/Arkham-Dev`
+
+- run `docker-compose up` within the Arkham-Dev dir. This will build dependencies (2x postgres DBs, 1x Keycloak container) for development.
+
+- Go to each of the sub-directories and run `npm install` to install the dependencies then start.
+
+  - `npm install` in both the UI and API repos
+  - `npm start` to start the API server
+  - `npm start` to start the React UI server
+
+-  Ensure the .env variables matches the DB name.
 - Through Knex, run the latest migration `npx knex migrate:latest`
 - Setup .env variables
     - CONNECTION_STRING: connects to PostgreSQL Docker container also running on local computer
@@ -60,8 +76,7 @@ For development purposes, you may clone the repo to your local computer. After c
 - Go to http://localhost:6969 to access the API server
 - Go to http://localhost:8080 to access the KeyCloak server
 
-<br>
-<br>
+View your development build at `http://localhost:3000/`
 
 ## Usage
 Live build is currently located at [http://arkhamdevops.eastus.cloudapp.azure.com:3000/](http://arkhamdevops.eastus.cloudapp.azure.com:3000/)
@@ -81,11 +96,9 @@ Live build is currently located at [http://arkhamdevops.eastus.cloudapp.azure.co
 4. You are also able to add nodes to the dataset
 5. All changes made to the dataset will be saved to the application's database for futher viewing
 
-### Example file upload:
+### CSV Formatting
+For the current build of this application, CSV files must follow a specific formatting in order to ensure a proper import. Files must contain the following headers:
 
-![Example File Upload GIF](./message.gif)
+ - [*EMPTY COLUMN*, id, name, color, symbolType, notes, size, source, target]
 
-
-### Example data manipulation:
-
-![Example Data Manipulation](./file.gif)
+The first 6 columns are node data, with the last two (source and target) being a link for each one of these nodes. Also, ensure the CSV files are comma delimited.
