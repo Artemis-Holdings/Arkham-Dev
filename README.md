@@ -79,7 +79,7 @@ For development purposes, you may clone the repo to your development environment
 View your development build at `http://localhost:3000/`
 
 ## Usage
-Live build is currently located at [http://arkhamdevops.eastus.cloudapp.azure.com:3000/](http://arkhamdevops.eastus.cloudapp.azure.com:3000/)
+Live build is currently located at [http://arkham-gov.eastus2.cloudapp.azure.com:3000](http://arkham-gov.eastus2.cloudapp.azure.com:3000)
 
 ### 1. Login
 1. Utilize the keycloak login services to register an account
